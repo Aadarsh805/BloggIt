@@ -47,3 +47,25 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.swatch_1 {
+  background: #f3e9df;
+}
+.swatch_2 {
+  background: #b5b5d6;
+}
+.swatch_3 {
+  background: #41383a;
+}
+.swatch_4 {
+  background: #a29fa2;
+}
+.swatch_5 {
+  background: #9b4f3c;
+}
+.swatch_6 {
+  background: #7879a2;
+}
+.swatch_7 {
+  background: #d6b9b6;
+}
