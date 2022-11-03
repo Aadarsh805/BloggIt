@@ -1,19 +1,15 @@
 import React from "react";
+import Home from "../components/Home";
+import MoreBlogs from "../components/MoreBlogs";
+import Navbar from "../components/Navbar";
 import { getPosts } from "../services";
 
 const index = ({ posts }) => {
   return (
-    <div>
-      {posts.map((post) => {
-        console.log("dafu", post);
-        return (
-          <>
-            <h1 className="text-4xl">h</h1>
-            <h1 className="text-4xl">{post?.node?.admin?.name}</h1>
-            <img src={post?.node?.image?.url} />
-          </>
-        );
-      })}
+    <div className="h-[90vh] bg-[#FBF3E7]">
+      <Navbar />
+      <Home />
+      <MoreBlogs />
     </div>
   );
 };
