@@ -8,9 +8,8 @@ import FeaturedBlog from "./FeaturedBlog";
 import UnfeaturedBlog from "./UnfeaturedBlog";
 
 const Home = ({ posts }) => {
-
   return (
-    <div className="h-[82vh] w-full">
+    <div className="h-[80vh] w-full bg-[#FBF3E7]">
       <div className="absolute -left-10 top-40">
         <Image src={Pill} />
       </div>
@@ -18,7 +17,7 @@ const Home = ({ posts }) => {
         <Image src={Smily} />
       </div>
 
-      <div className="flex flex-col gap-3 justiy-center items-center w-full text-center mt-3 mb-10 z-10">
+      <div className="flex flex-col gap-3 justiy-center items-center w-full text-center mb-10 z-10">
         <span className="text-base font-semibold opacity-80">My blog</span>
         <h1 className="font-medium text-7xl mb-2 tracking-tight">
           Stories and ideas
@@ -28,7 +27,7 @@ const Home = ({ posts }) => {
         </p>
       </div>
 
-      <div className="l-20 flex lg:flex-row flex-col gap-12 justify-center w-full z-50 items-center">
+      <div className="pl-20 flex lg:flex-row flex-col gap-12 justify-center w-full z-50 items-center">
         <FeaturedBlog
           posts={posts.filter((post) => post.node.starred === true)}
         />

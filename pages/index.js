@@ -6,10 +6,9 @@ import { getPosts } from "../services";
 
 const index = ({ posts }) => {
   return (
-    <div className="h-[90vh] bg-[#FBF3E7]">
-      <Navbar />
+    <div>
       <Home posts={posts} />
-      <MoreBlogs />
+      <MoreBlogs posts={posts} />
     </div>
   );
 };

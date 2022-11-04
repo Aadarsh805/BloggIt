@@ -5,14 +5,14 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <div className="flex px-56 w-full py-10 items-center justify-between">
+    <div className="flex px-56 w-full py-10 items-center justify-between bg-[#FBF3E7]">
       <div className="relative">
         <Link href="/">
           <p className="text-3xl font-semibold text-slate-900 cursor-pointer">
             BloggIt!
           </p>
         </Link>
-        <div className="absolute w-44 -bottom-32 -right-28">
+        <div className="absolute w-44 -bottom-32 -right-28 z-0">
           <Image src={logo_ext} />
         </div>
       </div>

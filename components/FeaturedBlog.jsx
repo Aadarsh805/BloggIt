@@ -6,16 +6,19 @@ import moment from "moment";
 import VerifiedIcon from "@mui/icons-material/Verified";
 
 const FeaturedBlog = ({ posts }) => {
-  console.log(posts, "fff");
   return (
     <div className="p-3 pb-5 relative border-[2px] border-slate-800 rounded-lg flex flex-col gap-5 z-20 bg-[#fff]">
-      <Image
-        src={posts[0].node.image.url}
-        width={380}
-        height={350}
-        className="object-cover rounded-lg"
-      />
+      <Link href={`blog/${posts[0].node.slug}`}>
+        <Image
+          src={posts[0].node.image.url}
+          width={500}
+          height={350}
+          className="object-cover rounded-lg cursor-pointer"
+        />
+      </Link>
+
       {/* <div className="absolute top-5 right-5 text-white">
+        
         <VerifiedIcon fontSize="large" className="text-[#4946FF] text-3xl" />
       </div> */}
       <div className="flex items-center gap-4 px-3">
@@ -33,10 +36,11 @@ const FeaturedBlog = ({ posts }) => {
           {moment(posts[0].node.createdAt).fromNow()}
         </span>
       </div>
-
-      <h2 className="font-semibold text-slate-800 text-4xl w-[456px] leading-8 px-3">
-        {posts[0].node.title}
-      </h2>
+      <Link href={`blog/${posts[0].node.slug}`}>
+        <h2 className="font-semibold text-slate-800 text-4xl w-[456px] leading-8 px-3 cursor-pointer">
+          {posts[0].node.title}
+        </h2>
+      </Link>
 
       <div className="flex items-center gap-3 px-3">
         <div className="object-cover border-2 flex items-center justify-center border-black rounded-full w-14 h-14">

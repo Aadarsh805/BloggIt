@@ -7,7 +7,7 @@ import photo from "../public/photo.jpg";
 const UnfeaturedBlog = ({ post }) => {
   return (
     <div className="flex items-center gap-8 py-3 w-full">
-      <Link href={post.slug}>
+      <Link href={`blog/${post.slug}`}>
         <Image
           src={post?.image?.url}
           className="object-cover rounded-md cursor-pointer"
@@ -33,7 +33,7 @@ const UnfeaturedBlog = ({ post }) => {
           </span>
         </div>
 
-        <Link href={post.slug}>
+        <Link href={`blog/${post.slug}`}>
           <h2 className="font-semibold text-2xl leading-8 cursor-pointer max-w-[22rem]">
             {post?.title}
           </h2>
