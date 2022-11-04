@@ -4,7 +4,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 export const getPosts = async () => {
   const query = gql`
     query Admins {
-      blogsConnection {
+      blogsConnection(orderBy: createdAt_DESC) {
         edges {
           node {
             createdAt
@@ -26,6 +26,7 @@ export const getPosts = async () => {
               name
               slug
             }
+            starred
           }
         }
       }
@@ -34,4 +35,18 @@ export const getPosts = async () => {
 
   const result = await request(graphqlAPI, query);
   return result.blogsConnection.edges;
+};
+
+export const getSimilarPosts = async () => {
+  const query = gql`
+    query GetPostDetails($slug: String!, $categories: [String!]) {
+      posts (
+        where: {slug_not: $slug, AND {categories_some: {slug_in: $categories}}
+        last: 3
+      )
+    }
+  `;
+
+  const result = await request(graphqlAPI, query);
+  return result.posts;
 };

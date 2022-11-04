@@ -7,7 +7,8 @@ import photo from "../public/photo.jpg";
 import FeaturedBlog from "./FeaturedBlog";
 import UnfeaturedBlog from "./UnfeaturedBlog";
 
-const Home = () => {
+const Home = ({ posts }) => {
+
   return (
     <div className="h-[82vh] w-full">
       <div className="absolute -left-10 top-40">
@@ -27,13 +28,16 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="flex lg:flex-row flex-col gap-12 w-full justify-center z-50 items-center">
-        <FeaturedBlog />
+      <div className="l-20 flex lg:flex-row flex-col gap-12 justify-center w-full z-50 items-center">
+        <FeaturedBlog
+          posts={posts.filter((post) => post.node.starred === true)}
+        />
 
-        <div className="flex flex-col gap-4 items-center ">
-          <UnfeaturedBlog />
-          <UnfeaturedBlog />
-          <UnfeaturedBlog />
+        <div className="flex flex-col gap-2 items-center ">
+          {posts.map(
+            (post, index) =>
+              index < 3 && <UnfeaturedBlog key={index} post={post.node} />
+          )}
         </div>
       </div>
     </div>

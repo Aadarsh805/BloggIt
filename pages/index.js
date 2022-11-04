@@ -8,7 +8,7 @@ const index = ({ posts }) => {
   return (
     <div className="h-[90vh] bg-[#FBF3E7]">
       <Navbar />
-      <Home />
+      <Home posts={posts} />
       <MoreBlogs />
     </div>
   );
