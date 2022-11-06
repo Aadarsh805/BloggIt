@@ -72,23 +72,23 @@ export const getPostDetails = async (slug) => {
   return result.blog;
 };
 
-export const getSimilarPosts = async (topics, slug) => {
-  const query = gql`
-    query GetPostDetails($slug: String!, $topics: [String!]) {
-      blogs(
-        where: { slug_not: $slug, AND: { topics: { slug_in: $topics } } }
-        last: 3
-      ) {
-        title
-        image {
-          url
-        }
-        createdAt
-        slug
-      }
-    }
-  `;
-  const result = await request(graphqlAPI, query, { topics, slug });
+// export const getSimilarPosts = async (topics, slug) => {
+//   const query = gql`
+//     query GetPostDetails($slug: String!, $topics: [String!]) {
+//       blogs(
+//         where: { slug_not: $slug, AND: { topics: { slug_in: $topics } } }
+//         last: 3
+//       ) {
+//         title
+//         image {
+//           url
+//         }
+//         createdAt
+//         slug
+//       }
+//     }
+//   `;
+//   const result = await request(graphqlAPI, query, { topics, slug });
 
-  return result.blogs;
-};
+//   return result.blogs;
+// };
