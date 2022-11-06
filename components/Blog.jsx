@@ -6,6 +6,7 @@ import featured from "../public/featured.png";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 const Blog = ({ post }) => {
+  console.log(post);
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -26,17 +27,18 @@ const Blog = ({ post }) => {
     switch (type) {
       case "image":
         return (
-          <img
+          <Image
             key={index}
             alt={obj.title}
-            height={obj.height}
-            width={obj.width}
+            height={400}
+            width={400}
             src={obj.src}
+            className="object-contain"
           />
         );
       case "heading-one":
         return (
-          <h2 key={index} className="text-2xl font-semibold mb-4">
+          <h2 key={index} className="text-3xl font-semibold mb-4">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -52,7 +54,7 @@ const Blog = ({ post }) => {
         );
       case "paragraph":
         return (
-          <p key={index} className="mb-8">
+          <p key={index} className="mb-8 text-xl">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -133,8 +135,10 @@ const Blog = ({ post }) => {
           {post.content.raw.children
             .filter((child) => child.type === "heading-one")
             .map((children) =>
-              children.children.map((child) => (
-                <li className="text-lg font-medium">{child.text}</li>
+              children.children.map((child, index) => (
+                <li className="text-lg font-medium" key={index}>
+                  {child.text}
+                </li>
               ))
             )}
         </div>
